@@ -2,7 +2,7 @@
 Android related projects are stored here.
 
 ## Android Scene Transition Support on RecyclerView Adapters
-```
+```java
 class MyRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>
     implements OnTriggerSceneTransitionsListener<ViewHolder> {
     
