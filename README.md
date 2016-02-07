@@ -58,8 +58,9 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>
         /* ... */
         TransitionManager.go(scene, t);
       } else { // JellyBean and below
-        /* Use animations instead */
-        /* You might want to use an alternative layout for your initial ViewHolder layout
+        /* Use animations instead (and don't forget to call the dispatchSceneChangeBeginning and
+           dispatchSceneChangeFinished methods as done above) */
+        /* You probably would want to use an alternative layout for your initial ViewHolder layout
            which contains both ViewGroups so you can transition between them with animations/animators. */
       }
     }
