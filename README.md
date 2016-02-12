@@ -30,7 +30,7 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>
         public void onClick(View v) {
           /* Specify the existing ViewHolder's Scene root ViewGroup and its corresponding scene layouts */
           SceneData data = SceneData.create(viewHolder, R.id.scene_root, R.layout.scene_root2);
-          mDelegate.triggerSceneTransitions(MyRecyclerViewAdapter.this, data);
+          mDelegate.triggerSceneTransitions(MyRecyclerViewAdapter.this, data, 0);
         }
       });
       return viewHolder;
@@ -38,8 +38,13 @@ class MyRecyclerViewAdapter extends RecyclerView.Adapter<ViewHolder>
     
     /* ... */
     
+    /**
+     * @param holder              The ViewHolder that caused the trigger
+     * @param scenes              The map between the res IDs (defined in SceneData) and their respective scenes
+     * @param sceneTransitionType Convenience value used for branching (i.e., using switch) - see last parameter in triggerSceneTransitions call above
+     */
     @Override
-    public void onTriggerSceneTransitions(final ViewHolder holder, SparseArray<Scene> scenes) {
+    public void onTriggerSceneTransitions(final ViewHolder holder, SparseArray<Scene> scenes, int sceneTransitionType) {
       if (SceneRecyclerViewAdapterDelegate.areScenesCompatible()) { // KitKat and above
         Scene scene = scenes.get(R.layout.scene_root2);
         /* Initialize scene view using Scene's setEnterAction method */
